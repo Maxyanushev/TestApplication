@@ -34,7 +34,6 @@ public class MainActivityViewModel extends ViewModel {
                     users.postValue(userModels);
                 }
             }
-
             @Override
             public void onFailure(@NonNull Call<List<UserModel>> call, @NonNull Throwable t) {
                 users.postValue(dataManager.getListUsers());
