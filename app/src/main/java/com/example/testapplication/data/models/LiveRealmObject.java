@@ -8,6 +8,7 @@ import io.realm.RealmObject;
 import io.realm.RealmObjectChangeListener;
 
 public class LiveRealmObject <T extends RealmObject> extends MutableLiveData<T> {
+
     private final RealmObjectChangeListener<T> listener = (obj, changeSet) -> {
         if (Objects.requireNonNull(changeSet).isDeleted()) {
             setValue(obj);
@@ -15,6 +16,7 @@ public class LiveRealmObject <T extends RealmObject> extends MutableLiveData<T> 
             setValue(null);
         }
     };
+
     private final T value;
     public LiveRealmObject(T value){
         this.value = value;
